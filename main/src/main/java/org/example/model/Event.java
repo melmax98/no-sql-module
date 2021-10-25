@@ -4,11 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.util.DateUtils;
+import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
@@ -19,7 +16,6 @@ import java.util.Date;
 @NoArgsConstructor
 @XmlRootElement
 @XmlType(propOrder = {"eventId", "title", "date", "ticketPrice"})
-@Entity
 public class Event implements Serializable {
 
     private static final long serialVersionUID = -1409930502963795321L;
@@ -31,7 +27,6 @@ public class Event implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long eventId;
     private String title;
     private Date date;

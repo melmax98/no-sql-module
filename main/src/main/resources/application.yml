@@ -1,5 +1,5 @@
 data:
-  filepath: src/main/resources/data.txt
+  filepath: main/src/main/resources/data.txt
   pdf:
     output:
       path: output/tickets.pdf
@@ -33,15 +33,11 @@ spring:
             authorization-uri: http://localhost:8081/auth/oauth/authorize
             user-info-uri: http://localhost:8081/auth/user/me
             user-name-attribute: name
-  jpa:
-    hibernate:
-      ddl-auto: validate
-    show-sql: true
   datasource:
-    url: jdbc:mysql://localhost:3306/booking-local
-    username: root
+    url: mongodb+srv://user:1111@booking.7lhjh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+    username: user
     password: 1111
-    driver-class-name: com.mysql.cj.jdbc.Driver
+
 
 management:
   endpoint:
@@ -51,5 +47,3 @@ management:
     web:
       exposure:
         include: '*'
-hibernate:
-  dialect: org.hibernate.dialect.MySQLDialect
