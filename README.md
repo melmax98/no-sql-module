@@ -1,3 +1,3 @@
-In this repository I'm practising Spring Testing.
+In this repository I'm practising NoSql.
 
 Spring-based module, which handles event ticket booking.
