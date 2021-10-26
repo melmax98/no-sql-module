@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -15,6 +16,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @XmlRootElement
 @XmlType(propOrder = {"ticketId", "event", "user", "category", "placeNumber"})
+@Document(collection = "user")
 public class Ticket implements Serializable {
 
     private static final long serialVersionUID = 1846226795597524566L;

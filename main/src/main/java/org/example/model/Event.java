@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.util.DateUtils;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
@@ -16,6 +17,7 @@ import java.util.Date;
 @NoArgsConstructor
 @XmlRootElement
 @XmlType(propOrder = {"eventId", "title", "date", "ticketPrice"})
+@Document(collection = "event")
 public class Event implements Serializable {
 
     private static final long serialVersionUID = -1409930502963795321L;
