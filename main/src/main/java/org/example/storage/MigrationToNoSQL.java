@@ -11,11 +11,17 @@ import org.example.storage.repository.sql.TicketRepositorySQL;
 import org.example.storage.repository.sql.UserAccountRepositorySQL;
 import org.example.storage.repository.sql.UserRepositorySQL;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
 @RequiredArgsConstructor
+@ConditionalOnProperty(
+        value = "migrate",
+        havingValue = "true",
+        matchIfMissing = false
+)
 public class MigrationToNoSQL implements CommandLineRunner {
 
     private final EntityMapper entityMapper;

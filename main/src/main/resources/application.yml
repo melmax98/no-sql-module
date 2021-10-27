@@ -1,3 +1,5 @@
+migrate: false
+
 data:
   filepath: main/src/main/resources/data.txt
   pdf:
