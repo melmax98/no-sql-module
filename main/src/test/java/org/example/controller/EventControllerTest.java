@@ -127,6 +127,6 @@ public class EventControllerTest {
                 .andExpect(content().string("false"))
                 .andReturn();
 
-        assertNull(bookingFacade.getEventById(Integer.MAX_VALUE));
+        assertNull(bookingFacade.getEventById(String.valueOf(Integer.MAX_VALUE)));
     }
 }

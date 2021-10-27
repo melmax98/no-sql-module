@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Date;
 
 @Repository
-public interface EventRepository extends MongoRepository<Event, Long> {
+public interface EventRepository extends MongoRepository<Event, String> {
     Page<Event> findByTitle(String title, Pageable pageable);
 
     Page<Event> findByDate(Date date, Pageable pageable);

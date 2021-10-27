@@ -18,11 +18,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAllUsers() {
-        return (List<User>) userRepository.findAll();
+        return userRepository.findAll();
     }
 
     @Override
-    public User getUserById(long userId) {
+    public User getUserById(String userId) {
         return userRepository.findById(userId).orElse(null);
     }
 
@@ -51,10 +51,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean deleteUser(long userId) {
+    public boolean deleteUser(String userId) {
         try {
-            userRepository.deleteById(userId);
-            return true;
+            User user = userRepository.findById(userId).orElse(null);
+            if (user != null) {
+                userRepository.deleteById(userId);
+                return true;
+            }
+            return false;
         } catch (Exception e) {
             log.error("Was not able to delete user with id {}", userId, e);
             return false;

@@ -11,14 +11,14 @@ public interface TicketService {
 
     Ticket createTicket(Ticket ticket);
 
-    Ticket bookTicket(long userId, long eventId, int place, TicketCategory category);
+    Ticket bookTicket(String userId, String eventId, int place, TicketCategory category);
 
     List<Ticket> getBookedTickets(User user, int pageSize, int pageNum);
 
     List<Ticket> getBookedTickets(Event event, int pageSize, int pageNum);
 
-    boolean cancelTicket(long ticketId);
+    boolean cancelTicket(String ticketId);
 
-    Ticket getTicketById(long ticketId);
+    Ticket getTicketById(String ticketId);
 
 }

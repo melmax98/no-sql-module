@@ -2,6 +2,7 @@ package org.example.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -15,6 +16,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @XmlRootElement
 @XmlType(propOrder = {"userId", "name", "email"})
+@EqualsAndHashCode
 @Document(collection = "user")
 public class User implements Serializable {
 
@@ -26,7 +28,7 @@ public class User implements Serializable {
     }
 
     @Id
-    private Long userId;
+    private String userId;
     private String name;
     private String email;
 

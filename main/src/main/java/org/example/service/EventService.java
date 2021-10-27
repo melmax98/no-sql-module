@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface EventService {
 
-    Event getEventById(long eventId);
+    Event getEventById(String eventId);
 
     List<Event> getEventsByTitle(String title, int pageSize, int pageNum);
 
@@ -17,7 +17,7 @@ public interface EventService {
 
     Event updateEvent(Event event);
 
-    boolean deleteEvent(long eventId);
+    boolean deleteEvent(String eventId);
 
     List<Event> getAllEvents();
 }

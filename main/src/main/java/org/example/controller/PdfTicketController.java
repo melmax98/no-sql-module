@@ -29,7 +29,7 @@ public class PdfTicketController {
     private final PdfCreator pdfCreator;
 
     @GetMapping(value = "/user/{id}", headers = "accept=application/pdf", produces = "application/pdf")
-    public ResponseEntity<byte[]> getBookedTicketsByUser(@PathVariable Integer id,
+    public ResponseEntity<byte[]> getBookedTicketsByUser(@PathVariable String id,
                                                          @RequestParam(name = "pageNum", required = false, defaultValue = "1") Integer pageNum,
                                                          @RequestParam(name = "pageSize", required = false, defaultValue = "10") Integer pageSize)
             throws DocumentException, IOException {
@@ -44,7 +44,7 @@ public class PdfTicketController {
 
     @ResponseBody
     @GetMapping(value = "/event/{id}", headers = "accept=application/pdf", produces = "application/pdf")
-    public ResponseEntity<byte[]> getBookedTicketsByEvent(@PathVariable Integer id,
+    public ResponseEntity<byte[]> getBookedTicketsByEvent(@PathVariable String id,
                                                           @RequestParam(name = "pageNum", required = false, defaultValue = "1") Integer pageNum,
                                                           @RequestParam(name = "pageSize", required = false, defaultValue = "10") Integer pageSize)
             throws DocumentException, IOException {

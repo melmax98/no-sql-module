@@ -25,7 +25,7 @@ public interface BookingFacade {
     /**
      * Deletes user account by id
      */
-    Boolean deleteUserAccount(long userAccountId);
+    Boolean deleteUserAccount(String userAccountId);
 
     /**
      * Gets user balance.
@@ -46,14 +46,14 @@ public interface BookingFacade {
      *
      * @return Event.
      */
-    Event getEventById(long eventId);
+    Event getEventById(String eventId);
 
     /**
      * Gets ticket by its id.
      *
      * @return Event.
      */
-    Ticket getTicketById(long ticketId);
+    Ticket getTicketById(String ticketId);
 
 
     /**
@@ -114,14 +114,14 @@ public interface BookingFacade {
      * @param eventId Event id.
      * @return Flag that shows whether event has been deleted.
      */
-    boolean deleteEvent(long eventId);
+    boolean deleteEvent(String eventId);
 
     /**
      * Gets user by its id.
      *
      * @return User.
      */
-    User getUserById(long userId);
+    User getUserById(String userId);
 
     /**
      * Gets user by its email. Email is strictly matched.
@@ -163,7 +163,7 @@ public interface BookingFacade {
      * @param userId User id.
      * @return Flag that shows whether user has been deleted.
      */
-    boolean deleteUser(long userId);
+    boolean deleteUser(String userId);
 
     /**
      * Creates new ticket. Ticket id should be auto-generated.
@@ -183,7 +183,7 @@ public interface BookingFacade {
      * @return Booked ticket object.
      * @throws java.lang.IllegalStateException if this place has already been booked.
      */
-    Ticket bookTicket(long userId, long eventId, int place, TicketCategory category);
+    Ticket bookTicket(String userId, String eventId, int place, TicketCategory category);
 
     /**
      * Get all booked tickets for specified user. Tickets should be sorted by event date in descending order.
@@ -211,7 +211,7 @@ public interface BookingFacade {
      * @param ticketId Ticket id.
      * @return Flag whether anything has been canceled.
      */
-    boolean cancelTicket(long ticketId);
+    boolean cancelTicket(String ticketId);
 
     /**
      * Loads data from XML file

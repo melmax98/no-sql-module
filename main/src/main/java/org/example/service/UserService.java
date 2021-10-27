@@ -8,7 +8,7 @@ public interface UserService {
 
     List<User> getAllUsers();
 
-    User getUserById(long userId);
+    User getUserById(String userId);
 
     User getUserByEmail(String email);
 
@@ -18,6 +18,6 @@ public interface UserService {
 
     User updateUser(User user);
 
-    boolean deleteUser(long userId);
+    boolean deleteUser(String userId);
 
 }

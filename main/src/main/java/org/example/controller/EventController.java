@@ -42,7 +42,7 @@ public class EventController {
     }
 
     @GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Event getEventById(@PathVariable Integer id) {
+    public Event getEventById(@PathVariable String id) {
         return bookingFacade.getEventById(id);
     }
 
@@ -60,7 +60,7 @@ public class EventController {
     public Event updateEvent(@RequestParam(required = false) String title,
                              @RequestParam(required = false) String date,
                              @RequestParam(required = false) Double ticketPrice,
-                             @PathVariable Integer eventId) {
+                             @PathVariable String eventId) {
         Event event = Optional.ofNullable(bookingFacade.getEventById(eventId)).orElseThrow(NullPointerException::new);
         final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyy");
 
@@ -73,7 +73,7 @@ public class EventController {
 
     @ResponseBody
     @PostMapping(value = "/delete/{eventId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Boolean deleteEvent(@PathVariable Integer eventId) {
+    public Boolean deleteEvent(@PathVariable String eventId) {
         return bookingFacade.deleteEvent(eventId);
     }
 }

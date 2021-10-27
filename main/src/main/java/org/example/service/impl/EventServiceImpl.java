@@ -18,7 +18,7 @@ public class EventServiceImpl implements EventService {
     private EventRepository eventRepository;
 
     @Override
-    public Event getEventById(long eventId) {
+    public Event getEventById(String eventId) {
         return eventRepository.findById(eventId).orElse(null);
     }
 
@@ -49,10 +49,14 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public boolean deleteEvent(long eventId) {
+    public boolean deleteEvent(String eventId) {
         try {
-            eventRepository.deleteById(eventId);
-            return true;
+            Event event = eventRepository.findById(eventId).orElse(null);
+            if (event != null) {
+                eventRepository.deleteById(eventId);
+                return true;
+            }
+            return false;
         } catch (Exception e) {
             log.error("Was not able to delete event with id {}", eventId, e);
             return false;

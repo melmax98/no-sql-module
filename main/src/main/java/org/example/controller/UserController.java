@@ -35,7 +35,7 @@ public class UserController {
     }
 
     @GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public User getUserById(@PathVariable Integer id) {
+    public User getUserById(@PathVariable String id) {
         return bookingFacade.getUserById(id);
     }
 
@@ -48,7 +48,7 @@ public class UserController {
     @PostMapping(value = "/update/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public User updateUser(@RequestParam(required = false) String name,
                            @RequestParam(required = false) String email,
-                           @PathVariable Integer userId) {
+                           @PathVariable String userId) {
         User user = Optional.of(bookingFacade.getUserById(userId)).orElseThrow(NullPointerException::new);
         user.setEmail(email);
         user.setName(name);
@@ -57,7 +57,7 @@ public class UserController {
 
     @ResponseBody
     @PostMapping(value = "/delete/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Boolean deleteUser(@PathVariable Integer userId) {
+    public Boolean deleteUser(@PathVariable String userId) {
         return bookingFacade.deleteUser(userId);
     }
 }

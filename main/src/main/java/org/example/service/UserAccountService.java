@@ -10,5 +10,5 @@ public interface UserAccountService {
 
     Boolean withdrawMoneyFromAccount(User user, Double amount);
 
-    Boolean deleteUserAccount(long userAccountId);
+    Boolean deleteUserAccount(String userAccountId);
 }

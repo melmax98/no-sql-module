@@ -115,11 +115,11 @@ public class UserControllerTest {
 
     @Test
     public void deleteUser_userDoesNotExist() throws Exception {
-        this.mockMvc.perform(post("/user/delete/" + Integer.MAX_VALUE))
+        this.mockMvc.perform(post("/user/delete/" + "fake"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("false"))
                 .andReturn();
 
-        assertNull(bookingFacade.getUserById(Integer.MAX_VALUE));
+        assertNull(bookingFacade.getUserById("fake"));
     }
 }

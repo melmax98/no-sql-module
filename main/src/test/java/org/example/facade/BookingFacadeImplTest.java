@@ -75,7 +75,7 @@ public class BookingFacadeImplTest {
     @Test
     public void bookTicket_userDoesNotExist() {
         Event event = bookingFacade.createEvent(new Event("title", new Date(), 490.0));
-        Ticket ticket = bookingFacade.bookTicket(Long.MAX_VALUE, event.getEventId(), 1, TicketCategory.PREMIUM);
+        Ticket ticket = bookingFacade.bookTicket(String.valueOf(Long.MAX_VALUE), event.getEventId(), 1, TicketCategory.PREMIUM);
 
         List<Ticket> bookedTicketsByEvent = bookingFacade.getBookedTickets(event, 1, 1);
 
@@ -121,7 +121,7 @@ public class BookingFacadeImplTest {
 
     @Test
     public void deleteUserAccount_userAccountDoesNotExist() {
-        assertFalse(bookingFacade.deleteUserAccount(Long.MAX_VALUE));
+        assertFalse(bookingFacade.deleteUserAccount(String.valueOf(Long.MAX_VALUE)));
     }
 
     @Test

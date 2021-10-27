@@ -38,7 +38,7 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     @Transactional
-    public Ticket bookTicket(long userId, long eventId, int place, TicketCategory category) {
+    public Ticket bookTicket(String userId, String eventId, int place, TicketCategory category) {
         User user = userService.getUserById(userId);
         Event event = eventService.getEventById(eventId);
 
@@ -69,10 +69,14 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public boolean cancelTicket(long ticketId) {
+    public boolean cancelTicket(String ticketId) {
         try {
-            ticketRepository.deleteById(ticketId);
-            return true;
+            Ticket ticket = ticketRepository.findById(ticketId).orElse(null);
+            if (ticket != null) {
+                ticketRepository.deleteById(ticketId);
+                return true;
+            }
+            return false;
         } catch (Exception e) {
             log.error("Was not able to delete ticket with id {}", ticketId, e);
             return false;
@@ -80,7 +84,7 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public Ticket getTicketById(long ticketId) {
+    public Ticket getTicketById(String ticketId) {
         return ticketRepository.findById(ticketId).orElse(null);
     }
 }

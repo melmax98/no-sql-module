@@ -1,13 +1,15 @@
-package org.example.model;
+package org.example.model.dto;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.util.DateUtils;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
@@ -18,20 +20,21 @@ import java.util.Date;
 @NoArgsConstructor
 @XmlRootElement
 @XmlType(propOrder = {"eventId", "title", "date", "ticketPrice"})
-@EqualsAndHashCode
-@Document(collection = "event")
-public class Event implements Serializable {
+@Entity
+@Table(name = "event")
+public class EventSQL implements Serializable {
 
     private static final long serialVersionUID = -1409930502963795321L;
 
-    public Event(String title, Date date, double ticketPrice) {
+    public EventSQL(String title, Date date, double ticketPrice) {
         this.title = title;
         this.date = date;
         this.ticketPrice = ticketPrice;
     }
 
     @Id
-    private String eventId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long eventId;
     private String title;
     private Date date;
     private Double ticketPrice;

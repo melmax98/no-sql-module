@@ -1,3 +1,0 @@
-{"eventId":6,"title":"New event","date":"2021-09-09", "ticketPrice": 100.0}
-{"userId":6,"name":"pasha","email":"john@mail.com"}
-{"ticketId":6,"event":{"eventId":6,"title":"New event","date":"2021-09-09", "ticketPrice": 100.0},"user":{"userId":6,"name":"pasha","email":"pasha@mail.com"},"category":"BAR","placeNumber":1}

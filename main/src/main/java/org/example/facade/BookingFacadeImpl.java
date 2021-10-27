@@ -35,7 +35,7 @@ public class BookingFacadeImpl implements BookingFacade {
     }
 
     @Override
-    public Boolean deleteUserAccount(long userAccountId) {
+    public Boolean deleteUserAccount(String userAccountId) {
         return userAccountService.deleteUserAccount(userAccountId);
     }
 
@@ -50,12 +50,12 @@ public class BookingFacadeImpl implements BookingFacade {
     }
 
     @Override
-    public Event getEventById(long eventId) {
+    public Event getEventById(String eventId) {
         return eventService.getEventById(eventId);
     }
 
     @Override
-    public Ticket getTicketById(long ticketId) {
+    public Ticket getTicketById(String ticketId) {
         return ticketService.getTicketById(ticketId);
     }
 
@@ -91,12 +91,12 @@ public class BookingFacadeImpl implements BookingFacade {
     }
 
     @Override
-    public boolean deleteEvent(long eventId) {
+    public boolean deleteEvent(String eventId) {
         return eventService.deleteEvent(eventId);
     }
 
     @Override
-    public User getUserById(long userId) {
+    public User getUserById(String userId) {
         return userService.getUserById(userId);
     }
 
@@ -121,7 +121,7 @@ public class BookingFacadeImpl implements BookingFacade {
     }
 
     @Override
-    public boolean deleteUser(long userId) {
+    public boolean deleteUser(String userId) {
         return userService.deleteUser(userId);
     }
 
@@ -131,7 +131,7 @@ public class BookingFacadeImpl implements BookingFacade {
     }
 
     @Override
-    public Ticket bookTicket(long userId, long eventId, int place, TicketCategory category) {
+    public Ticket bookTicket(String userId, String eventId, int place, TicketCategory category) {
         return ticketService.bookTicket(userId, eventId, place, category);
     }
 
@@ -146,7 +146,7 @@ public class BookingFacadeImpl implements BookingFacade {
     }
 
     @Override
-    public boolean cancelTicket(long ticketId) {
+    public boolean cancelTicket(String ticketId) {
         return ticketService.cancelTicket(ticketId);
     }
 

@@ -28,7 +28,7 @@ public class TicketController {
     private final BookingFacade bookingFacade;
 
     @GetMapping(value = "/user/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Ticket> getBookedTicketsByUser(@PathVariable Integer id,
+    public List<Ticket> getBookedTicketsByUser(@PathVariable String id,
                                                @RequestParam(name = "pageNum", required = false, defaultValue = "1") Integer pageNum,
                                                @RequestParam(name = "pageSize", required = false, defaultValue = "10") Integer pageSize) {
 
@@ -37,7 +37,7 @@ public class TicketController {
     }
 
     @GetMapping(value = "/event/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Ticket> getBookedTicketsByEvent(@PathVariable Integer id,
+    public List<Ticket> getBookedTicketsByEvent(@PathVariable String id,
                                                 @RequestParam(name = "pageNum", required = false, defaultValue = "1") Integer pageNum,
                                                 @RequestParam(name = "pageSize", required = false, defaultValue = "10") Integer pageSize) {
 
@@ -46,18 +46,18 @@ public class TicketController {
     }
 
     @GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Ticket getTicketById(@PathVariable Integer id) {
+    public Ticket getTicketById(@PathVariable String id) {
         return bookingFacade.getTicketById(id);
     }
 
     @PostMapping(value = "/cancel/{ticketId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Boolean cancelTicket(@PathVariable Integer ticketId) {
+    public Boolean cancelTicket(@PathVariable String ticketId) {
         return bookingFacade.cancelTicket(ticketId);
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public Ticket bookTicket(@RequestParam Integer userId,
-                             @RequestParam Integer eventId,
+    public Ticket bookTicket(@RequestParam String userId,
+                             @RequestParam String eventId,
                              @RequestParam Integer place,
                              @RequestParam String categoryName) {
         return bookingFacade.bookTicket(userId, eventId, place, TicketCategory.valueOf(categoryName));

@@ -150,7 +150,7 @@ public class TicketControllerTest {
                 .andExpect(content().string("false"))
                 .andReturn();
 
-        assertNull(bookingFacade.getTicketById(Integer.MAX_VALUE));
+        assertNull(bookingFacade.getTicketById(String.valueOf(Integer.MAX_VALUE)));
     }
 
     @Test

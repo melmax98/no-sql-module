@@ -45,10 +45,14 @@ public class UserAccountServiceImpl implements UserAccountService {
     }
 
     @Override
-    public Boolean deleteUserAccount(long userAccountId) {
+    public Boolean deleteUserAccount(String userAccountId) {
         try {
-            userAccountRepository.deleteById(userAccountId);
-            return true;
+            UserAccount userAccount = userAccountRepository.findById(userAccountId).orElse(null);
+            if (userAccount != null) {
+                userAccountRepository.deleteById(userAccountId);
+                return true;
+            }
+            return false;
         } catch (Exception e) {
             log.error("Was not able to delete user account with id {}", userAccountId, e);
             return false;
